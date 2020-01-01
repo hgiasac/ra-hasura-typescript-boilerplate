@@ -1,0 +1,143 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:latest", 
+    "tslint-react", 
+    "tslint-eslint-rules", 
+    "tslint-consistent-codestyle"
+  ],
+  "rules": {
+    "no-console": false,
+    "no-implicit-dependencies": [
+      false,
+      "dev"
+    ],
+    "no-angle-bracket-type-assertion": false,
+    "no-static-this": true,
+    "no-return-undefined": false,
+    "no-unnecessary-else": true,
+    "prefer-while": true,
+    "prefer-const-enum": true,
+    "parameter-properties": true,
+    "object-shorthand-properties-first": true,
+    "no-var-before-return": true,
+    "no-unused": true,
+    "no-collapsible-if": true,
+    "no-as-type-assertion": false,
+    "naming-convention": true,
+    "arrow-parens": true,
+    "interface-name": true,
+    "triple-equals": true,
+    "max-classes-per-file": [true, 3],
+    "max-file-line-count": [
+      true,
+      300
+    ],
+    "max-line-length": [
+      true,
+      120
+    ],
+    "newline-before-return": true,
+    "no-boolean-literal-compare": true,
+    "no-constant-condition": "error",
+    "no-default-export": false,
+    "no-duplicate-variable": true,
+    "no-duplicate-case": "error",
+    "no-object-literal-type-assertion": false,
+    "no-extra-boolean-cast": "error",
+    "no-extra-semi": "error",
+    "one-variable-per-declaration": false,
+    "no-irregular-whitespace": true,
+    "no-magic-numbers": false,
+    "no-multi-spaces": "error",
+    "no-non-null-assertion": true,
+    "no-require-imports": false,
+    "no-var-requires": false,
+    "no-unnecessary-callback-wrapper": true,
+    "no-unsafe-any": false,
+    "object-literal-sort-keys": false,
+    "promise-function-async": false,
+    "prefer-function-over-method": true,
+    "prefer-method-signature": false,
+    "quotemark": [
+      true,
+      "double"
+    ],
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore",
+      "allow-pascal-case"
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "never"
+    ],
+    "arrow-return-shorthand": [
+      true
+    ],
+    "block-spacing": [
+      "error",
+      "always"
+    ],
+    "linebreak-style": [
+      true,
+      "LF"
+    ],
+    "no-consecutive-blank-lines": [
+      true,
+      1
+    ],
+    "no-namespace": [
+      true,
+      "allow-declarations"
+    ],
+    "no-trailing-whitespace": [
+      true,
+      "ignore-comments"
+    ],
+    "no-unused-expression": [
+      true,
+      "allow-fast-null-checks"
+    ],
+    "object-literal-key-quotes": [
+      true,
+      "as-needed"
+    ],
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "lowercase-last",
+        "named-imports-order": "lowercase-first"
+      }
+    ],
+    "prefer-template": [
+      true,
+      "allow-single-concat"
+    ],
+    "ter-indent": [
+      true,
+      2
+    ],
+    "trailing-comma": true,
+    "typedef": [
+      true,
+      "property-declaration"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-operator",
+      "check-typecast",
+      "check-separator",
+      "check-type",
+      "check-preblock"
+    ],
+    "early-exit": true,
+    "jsx-no-multiline-js": false,
+    "no-small-switch": false,
+    "switch-default": true,
+    "jsx-no-lambda": false
+  }
+}

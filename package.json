@@ -1,0 +1,50 @@
+{
+  "name": "ra-hasura-typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "react admin hasura typescript boilerplate",
+  "default": "dist/index.html",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "clean": "rm -rf .parcel-cache && rm -rf dist",
+    "build": "npm run clean && parcel build ./src/index.html --no-cache",
+    "build:prod": "npm run clean && NODE_ENV=production parcel build ./src/index.html  --no-cache",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "admin",
+    "hasura",
+    "typescript",
+    "boilerplate"
+  ],
+  "author": "Toan Nguyen",
+  "license": "MIT",
+  "targets": {
+    "default": {
+      "publicUrl": "./"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.21",
+    "parcel": "^2.0.0-alpha.3.2",
+    "tslint": "^5.20.1",
+    "tslint-consistent-codestyle": "^1.16.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^4.1.0",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.8.0",
+    "@material-ui/icons": "^4.5.1",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-redux": "^7.1.5",
+    "@types/react-router-dom": "^5.1.3",
+    "ra-data-hasura": "0.0.7",
+    "react": "^16.12.0",
+    "react-admin": "^3.1.1",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "react-router-dom": "^5.1.2"
+  }
+}
