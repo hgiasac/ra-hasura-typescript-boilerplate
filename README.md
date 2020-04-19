@@ -5,7 +5,7 @@
 - [React 16+](https://reactjs.org/)
 - [React Admin](https://redux.js.org/)
 - [Redux]((https://redux.js.org/))
-- [Hasura data provider](https://github.com/hasura/ra-data-hasura)
+- [Hasura data provider](https://github.com/Steams/ra-data-hasura-graphql)
 - [Parcel](https://parceljs.org/)
 
 ## Development
