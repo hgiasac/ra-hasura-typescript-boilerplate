@@ -3,16 +3,12 @@ import { XHasuraAdminSecret } from "./AuthProvder";
 import { Config } from "./config/env";
 
 const authLink = new ApolloLink((operation, forward) => {
-  operation.setContext(({ headers }) => {
-    console.log("headers");
-
-    return ({
-      headers: {
-        [XHasuraAdminSecret]: Config.adminSecret,
-        ...headers
-      }
-    });
-  });
+  operation.setContext(({ headers }) => ({
+    headers: {
+      [XHasuraAdminSecret]: Config.adminSecret,
+      ...headers
+    }
+  }));
 
   return forward(operation);
 });
