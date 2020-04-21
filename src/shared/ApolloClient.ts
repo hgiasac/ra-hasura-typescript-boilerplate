@@ -1,20 +1,29 @@
 import { from, ApolloClient, ApolloLink, HttpLink, InMemoryCache } from "@apollo/client";
-import { XHasuraAdminSecret } from "./AuthProvder";
 import { Config } from "./config/env";
 
+export const AuthorizationHeader = "Authorization";
+export const AuthBearer = "Bearer";
+
+const getIdToken = () => localStorage.getItem(Config.sessionToken);
+
 const authLink = new ApolloLink((operation, forward) => {
-  operation.setContext(({ headers }) => ({
-    headers: {
-      [XHasuraAdminSecret]: Config.adminSecret,
-      ...headers
-    }
-  }));
+  operation.setContext(({ headers }) => {
+    const token = getIdToken();
+
+    return {
+      headers: {
+        [AuthorizationHeader]: token ? `${AuthBearer} ${token}` : undefined,
+        ...headers
+      }
+    };
+  });
 
   return forward(operation);
 });
 
 const httpLink = from([
   authLink,
+  // errorLink,
   new HttpLink({
     uri: Config.dataHost,
   }),

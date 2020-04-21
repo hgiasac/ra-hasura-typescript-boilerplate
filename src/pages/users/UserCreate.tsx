@@ -1,8 +1,8 @@
 import React from "react";
 import { Create, SelectInput, SimpleForm, TextInput } from "react-admin";
-import { Roles } from "../../shared/types";
+import { HASURA_ROLES } from "../../shared/types";
 
-const choices = Roles.map((r) => ({
+const choices = HASURA_ROLES.map((r) => ({
   id: r,
   name: r,
 }));

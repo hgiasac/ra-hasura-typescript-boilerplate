@@ -1,5 +1,8 @@
 # ra-hasura-typescript-boilerplate
 
+This admin application is used for integrating [Hasura backend typescript boilerplate](https://github.com/hgiasac/hasura-typescript-boilerplate/tree/auth-jwt
+) with JWT authentication
+
 ## Prerequisites
 
 - [React 16+](https://reactjs.org/)
@@ -9,6 +12,7 @@
 - [Parcel](https://parceljs.org/)
 
 ## Development
+
 
 ```sh
 npm start
