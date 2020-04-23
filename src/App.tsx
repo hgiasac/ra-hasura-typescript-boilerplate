@@ -8,15 +8,17 @@ import Login from "./shared/components/Auth/Login";
 import { Layout } from "./shared/components/Layout";
 import i18nProvider from "./shared/i18n";
 import { appReducer } from "./shared/store/reducer";
+import { FirebaseApp } from "./shared/vendor/firebase";
 
 const App = () => {
   const [resolvedDataProvider, setResolvedDataProvider] = useState();
 
   useEffect(() => {
-    (async () => {
-      const dp = await buildHasuraProvider({ client: authGQLClient });
-      setResolvedDataProvider(() => dp);
-    })()
+    FirebaseApp().auth()
+      .onAuthStateChanged(() => {
+        buildHasuraProvider({ client: authGQLClient })
+          .then((dp) => setResolvedDataProvider(() => dp));
+      });
   }, []);
 
   if (!resolvedDataProvider) {

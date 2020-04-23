@@ -25,16 +25,17 @@
     }
   },
   "devDependencies": {
-    "@types/node": "^13.13.0",
+    "@types/node": "^13.13.2",
     "parcel": "^2.0.0-alpha.3.2",
     "tslint": "^6.1.1",
     "tslint-consistent-codestyle": "^1.16.0",
     "tslint-eslint-rules": "^5.4.0",
-    "tslint-react": "^4.2.0",
+    "tslint-react": "^5.0.0",
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@apollo/client": "^3.0.0-beta.43",
+    "@apollo/client": "^3.0.0-beta.44",
+    "@apollo/link-context": "^2.0.0-beta.3",
     "@apollo/link-error": "^2.0.0-beta.3",
     "@material-ui/core": "^4.9.11",
     "@material-ui/icons": "^4.9.1",
@@ -42,10 +43,11 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-redux": "^7.1.7",
     "@types/react-router-dom": "^5.1.4",
+    "firebase": "^7.14.1",
     "graphql": "^15.0.0",
-    "ra-data-hasura-graphql": "^0.1.9",
+    "ra-data-hasura-graphql": "^0.1.10",
     "react": "^16.13.1",
-    "react-admin": "^3.4.1",
+    "react-admin": "^3.4.2",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2"

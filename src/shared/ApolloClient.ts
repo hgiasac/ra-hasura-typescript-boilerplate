@@ -1,25 +1,22 @@
-import { from, ApolloClient, ApolloLink, HttpLink, InMemoryCache } from "@apollo/client";
+import { from, ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
+import { setContext } from "@apollo/link-context";
 import { Config } from "./config/env";
+import { FirebaseApp } from "./vendor/firebase";
 
 export const AuthorizationHeader = "Authorization";
 export const AuthBearer = "Bearer";
 
-const getIdToken = () => localStorage.getItem(Config.sessionToken);
+const getIdToken = () => FirebaseApp().auth().currentUser
+  ? FirebaseApp().auth().currentUser.getIdToken()
+  : Promise.resolve(null);
 
-const authLink = new ApolloLink((operation, forward) => {
-  operation.setContext(({ headers }) => {
-    const token = getIdToken();
-
-    return {
-      headers: {
-        [AuthorizationHeader]: token ? `${AuthBearer} ${token}` : undefined,
-        ...headers
-      }
-    };
-  });
-
-  return forward(operation);
-});
+const authLink = setContext((_, { headers }) => getIdToken()
+  .then((token) => ({
+    headers: {
+      [AuthorizationHeader]: token ? `${AuthBearer} ${token}` : undefined,
+      ...headers
+    }
+  })));
 
 const httpLink = from([
   authLink,
@@ -32,11 +29,4 @@ const httpLink = from([
 export const authGQLClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: httpLink,
-});
-
-export const gqlClient = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: Config.dataHost,
-  }),
 });

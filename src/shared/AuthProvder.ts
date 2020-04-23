@@ -1,8 +1,8 @@
 import { gql, FetchPolicy } from "@apollo/client";
 import { AuthProvider } from "ra-core";
-import { authGQLClient, gqlClient } from "./ApolloClient";
-import { Config } from "./config/env";
+import { authGQLClient } from "./ApolloClient";
 import { HasuraRole, Maybe } from "./types";
+import { FirebaseApp } from "./vendor/firebase";
 
 export const XHasuraAdminSecret = "X-Hasura-Admin-Secret";
 export type UserID = string;
@@ -38,54 +38,28 @@ export async function getProfile(fetchPolicy: FetchPolicy): Promise<Maybe<IAuthU
   return results.length ? results[0] : null;
 }
 
-const checkAuth = async () => {
-  if (!localStorage.getItem(Config.sessionToken)) {
-    return Promise.reject();
-  }
-
-  return getProfile("network-only")
-    .then((user) => user ? Promise.resolve() : Promise.reject());
-};
+const checkAuth = () => FirebaseApp().auth()
+  .currentUser ? Promise.resolve() : Promise.reject();
 
 export const authProvider: AuthProvider = {
   checkAuth,
   login: async ({ username, password }) => {
 
-    const mutation = gql`
-      mutation login($email: String!, $password: String!) {
-        login(data: {email: $email, password: $password}) {
-          id
-          token
-          firstName
-          lastName
-          email
-          role
-        }
-      }
-    `;
+    await FirebaseApp().auth()
+      .signInWithEmailAndPassword(username, password);
 
-    const result = await gqlClient.mutate({
-      mutation,
-      variables: {
-        password,
-        email: username,
-      }
-    }).then(({ data }) => data.login as IAuthUser);
+    const user = await getProfile("network-only");
 
-    localStorage.setItem(Config.sessionToken, result.token);
+    if (!user) {
+      await FirebaseApp().auth().signOut();
+      throw new Error("User doesn't exist");
+    }
 
-    await authGQLClient.resetStore();
-
-    // accept all username/password combinations
-    return Promise.resolve(result);
-  },
-  logout: () => {
-    localStorage.removeItem(Config.sessionToken);
-
-    // reset apollo store 
     return authGQLClient.resetStore()
-      .then(() => Promise.resolve());
+      .then(() => user);
   },
+  logout: () => authGQLClient.resetStore()
+    .then(() => FirebaseApp().auth().signOut()),
   checkError: ({ graphQLErrors, networkError }) => {
 
     if (networkError) {
