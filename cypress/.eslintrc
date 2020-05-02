@@ -1,0 +1,24 @@
+{
+    "overrides": [
+        {
+            "files": [
+                "*.js",
+                "*.ts",
+                "*.tsx"
+            ],
+            "parserOptions": {
+                "project": "cypress/tsconfig.json",
+                "sourceType": "module"
+            },
+            "globals": {
+                "cy": true,
+                "it": true
+            }
+        }
+    ],
+    "rules": {
+        "import/no-unresolved": 0,
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "functional/immutable-data": 0
+    }
+}

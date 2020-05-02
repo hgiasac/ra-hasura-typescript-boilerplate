@@ -1,5 +1,5 @@
 import buildHasuraProvider from "ra-data-hasura-graphql";
-import React, { useEffect, useState } from "react";
+import * as React from "react";
 import { Admin } from "react-admin";
 import { customRoutes, pageResources } from "./pages";
 import { authGQLClient } from "./shared/ApolloClient";
@@ -10,10 +10,10 @@ import i18nProvider from "./shared/i18n";
 import { appReducer } from "./shared/store/reducer";
 import { FirebaseApp } from "./shared/vendor/firebase";
 
-const App = () => {
-  const [resolvedDataProvider, setResolvedDataProvider] = useState();
+const App = (): JSX.Element => {
+  const [resolvedDataProvider, setResolvedDataProvider] = React.useState();
 
-  useEffect(() => {
+  React.useEffect(() => {
     FirebaseApp().auth()
       .onAuthStateChanged(() => {
         buildHasuraProvider({ client: authGQLClient })

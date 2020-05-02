@@ -9,9 +9,9 @@ export enum Locale {
 
 export default polyglotI18nProvider((locale) => {
   switch (locale) {
-  case Locale.Vietnamese:
-    return vi;
-  default:
-    return en;
+    case Locale.Vietnamese:
+      return vi;
+    default:
+      return en;
   }
 }, Locale.English);

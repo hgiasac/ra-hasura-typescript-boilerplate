@@ -1,9 +1,15 @@
-// tslint:disable jsx-key
-import React from "react";
+import * as React from "react";
 import { EditGuesser, ListGuesser, Resource } from "react-admin";
 import { Route } from "react-router";
 import Configuration from "./Configuration";
 import { UserCreate } from "./users/UserCreate";
+
+type Renderer = () => JSX.Element;
+export type CustomRoute = {
+  readonly exact: boolean
+  readonly path: string
+  readonly render: Renderer
+};
 
 export const pageResources = [
   <Resource
@@ -12,9 +18,13 @@ export const pageResources = [
     list={ListGuesser}
     edit={EditGuesser}
     create={UserCreate}
-  />,
+  />
 ];
 
-export const customRoutes = [
-  <Route exact={true} path="/configuration" render={() => <Configuration />} />,
-];
+export const customRoutes = [{
+  exact: true,
+  path: "/configuration",
+  render: () => <Configuration />
+}].map((m) => (
+  <Route {...m} key={m.path} />
+));

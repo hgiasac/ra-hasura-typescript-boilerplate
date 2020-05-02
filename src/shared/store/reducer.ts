@@ -1,9 +1,10 @@
-import { configReducer, ConfigState } from "./config/reducer";
+import { configReducer, initialConfigState } from "./config/reducer";
+import { InternalAppState } from "./types";
 
-export const AppState = () => ({
-  config: ConfigState()
+export const initialAppState = (): InternalAppState => ({
+  config: initialConfigState()
 });
 
 export const appReducer = {
-  config: configReducer,
+  config: configReducer
 };

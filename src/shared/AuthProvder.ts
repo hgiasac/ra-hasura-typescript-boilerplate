@@ -7,16 +7,16 @@ import { FirebaseApp } from "./vendor/firebase";
 export const XHasuraAdminSecret = "X-Hasura-Admin-Secret";
 export type UserID = string;
 
-export interface IAuthUser {
-  id: UserID;
-  token: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  role: HasuraRole;
-}
+export type AuthUser = {
+  readonly id: UserID
+  readonly token: string
+  readonly email: string
+  readonly firstName: string
+  readonly lastName: string
+  readonly role: HasuraRole
+};
 
-export async function getProfile(fetchPolicy: FetchPolicy): Promise<Maybe<IAuthUser>> {
+export async function getProfile(fetchPolicy: FetchPolicy): Promise<Maybe<AuthUser>> {
 
   const query = gql`
     query getProfile {
@@ -32,13 +32,13 @@ export async function getProfile(fetchPolicy: FetchPolicy): Promise<Maybe<IAuthU
 
   const results = await authGQLClient.query({
     query,
-    fetchPolicy,
-  }).then(({ data }) => data.me as IAuthUser[]);
+    fetchPolicy
+  }).then(({ data }) => data.me as readonly AuthUser[]);
 
   return results.length ? results[0] : null;
 }
 
-const checkAuth = () => FirebaseApp().auth()
+const checkAuth = (): Promise<void> => FirebaseApp().auth()
   .currentUser ? Promise.resolve() : Promise.reject();
 
 export const authProvider: AuthProvider = {
@@ -73,5 +73,5 @@ export const authProvider: AuthProvider = {
 
     return Promise.resolve();
   },
-  getPermissions: () => Promise.reject("Unknown method"),
+  getPermissions: () => Promise.reject("Unknown method")
 };

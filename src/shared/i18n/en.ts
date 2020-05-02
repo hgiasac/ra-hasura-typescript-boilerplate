@@ -6,14 +6,14 @@ export default {
   layout: {
     theme: {
       light: "light",
-      dark: "dark",
+      dark: "dark"
     },
     menu: {
       catalog: "menu catalog"
-    },
+    }
   },
   common: {
-    language: "language",
+    language: "language"
   },
   resources: {
     users: {
