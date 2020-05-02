@@ -1,7 +1,9 @@
 import { ReduxState } from "ra-core";
-import { IConfigState } from "./config/types";
+import { ConfigState } from "./config/types";
 export * from "./config/types";
 
-export interface IAppState extends ReduxState {
-  config: IConfigState;
-}
+export type InternalAppState = {
+  readonly config: ConfigState
+};
+
+export type AppState = ReduxState & InternalAppState;

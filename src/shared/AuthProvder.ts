@@ -1,22 +1,22 @@
 import { gql, FetchPolicy } from "@apollo/client";
 import { AuthProvider } from "ra-core";
 import { authGQLClient, gqlClient } from "./ApolloClient";
-import { Config } from "./config/env";
+import { Config } from "./config";
 import { HasuraRole, Maybe } from "./types";
 
 export const XHasuraAdminSecret = "X-Hasura-Admin-Secret";
 export type UserID = string;
 
-export interface IAuthUser {
-  id: UserID;
-  token: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  role: HasuraRole;
-}
+export type AuthUser = {
+  readonly id: UserID
+  readonly token: string
+  readonly email: string
+  readonly firstName: string
+  readonly lastName: string
+  readonly role: HasuraRole
+};
 
-export async function getProfile(fetchPolicy: FetchPolicy): Promise<Maybe<IAuthUser>> {
+export async function getProfile(fetchPolicy: FetchPolicy): Promise<Maybe<AuthUser>> {
 
   const query = gql`
     query getProfile {
@@ -32,13 +32,13 @@ export async function getProfile(fetchPolicy: FetchPolicy): Promise<Maybe<IAuthU
 
   const results = await authGQLClient.query({
     query,
-    fetchPolicy,
-  }).then(({ data }) => data.me as IAuthUser[]);
+    fetchPolicy
+  }).then(({ data }) => data.me as readonly AuthUser[]);
 
   return results.length ? results[0] : null;
 }
 
-const checkAuth = async () => {
+const checkAuth = (): Promise<void> => {
   if (!localStorage.getItem(Config.sessionToken)) {
     return Promise.reject();
   }
@@ -68,9 +68,9 @@ export const authProvider: AuthProvider = {
       mutation,
       variables: {
         password,
-        email: username,
+        email: username
       }
-    }).then(({ data }) => data.login as IAuthUser);
+    }).then(({ data }) => data.login as AuthUser);
 
     localStorage.setItem(Config.sessionToken, result.token);
 
@@ -99,5 +99,5 @@ export const authProvider: AuthProvider = {
 
     return Promise.resolve();
   },
-  getPermissions: () => Promise.reject("Unknown method"),
+  getPermissions: () => Promise.reject("Unknown method")
 };

@@ -1,0 +1,9 @@
+{
+  "extends": ["@parcel/config-default"],
+  "resolvers": ["@parcel/resolver-default"],
+  "bundler": "@parcel/bundler-default",
+  "namers": ["@parcel/namer-default"],
+  "validators": {
+    "*.{ts,tsx}": ["@parcel/validator-typescript", "@parcel/validator-eslint"]
+  }
+}

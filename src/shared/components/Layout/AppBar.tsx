@@ -1,6 +1,6 @@
-import {makeStyles, Typography} from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import { Settings } from "@material-ui/icons";
-import React, { forwardRef } from "react";
+import * as React from "react";
 import { useTranslate, AppBar, MenuItemLink, UserMenu } from "react-admin";
 
 const useStyles = makeStyles({
@@ -8,43 +8,43 @@ const useStyles = makeStyles({
     flex: 1,
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
-    overflow: "hidden",
+    overflow: "hidden"
   },
   spacer: {
-    flex: 1,
-  },
+    flex: 1
+  }
 });
 
-const ConfigurationMenu = forwardRef<any, any>((props, ref) => {
+const ConfigurationMenu = React.forwardRef<any, any>((props, ref) => {
   const translate = useTranslate();
 
   return (
-        <MenuItemLink
-            ref={ref}
-            to="/configuration"
-            primaryText={translate("configuration")}
-            leftIcon={<Settings />}
-            onClick={props.onClick}
-        />
+    <MenuItemLink
+      ref={ref}
+      to="/configuration"
+      primaryText={translate("configuration")}
+      leftIcon={<Settings />}
+      onClick={props.onClick}
+    />
   );
 });
 
-const CustomUserMenu = (props: any) => (
-    <UserMenu {...props}>
-        <ConfigurationMenu />
-    </UserMenu>
+const CustomUserMenu = (props: any): JSX.Element => (
+  <UserMenu {...props}>
+    <ConfigurationMenu />
+  </UserMenu>
 );
 
-const CustomAppBar = (props: any) => {
+const CustomAppBar = (props: any): JSX.Element => {
   const classes = useStyles(props);
 
   return (
     <AppBar {...props} userMenu={<CustomUserMenu />}>
       <Typography
-          variant="h6"
-          color="inherit"
-          className={classes.title}
-          id="react-admin-title"
+        variant="h6"
+        color="inherit"
+        className={classes.title}
+        id="react-admin-title"
       />
       <span className={classes.spacer} />
     </AppBar>

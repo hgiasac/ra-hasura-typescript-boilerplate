@@ -21,7 +21,7 @@ export const STATUSES = [
   STATUS_ACTIVE,
   STATUS_INACTIVE,
   STATUS_DISABLED,
-  STATUS_DELETED,
+  STATUS_DELETED
 ];
 
 export type Status
@@ -34,3 +34,8 @@ export type HasuraRole
   = typeof HASURA_ROLE_ADMIN
   | typeof HASURA_ROLE_USER
   | typeof HASURA_ROLE_ANONYMOUS;
+import { Location } from "history";
+
+export type AppLocation = Location<{
+  readonly nextPathname: string
+}>;
