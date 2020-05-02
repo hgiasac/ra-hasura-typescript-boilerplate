@@ -5,3 +5,4 @@ node_modules
 .env.local
 cypress/screenshots
 cypress/videos
+dist
