@@ -1,10 +1,18 @@
-import { fetchUtils, AuthProvider } from "ra-core";
-
+import { fetchUtils } from "ra-core/lib/dataProvider";
+import { AuthProvider } from "react-admin";
 export const AuthorizationHeader = "Authorization";
 export const XHasuraAdminSecret = "X-Hasura-Admin-Secret";
 
-export const httpClient = (url: string, options: any = {}) => {
+export type FetchResponse = {
+  readonly status: number
+  readonly headers: Headers
+  readonly body: string
+  readonly json: any
+};
+
+export const httpClient = (url: string, options: any = {}): Promise<FetchResponse> => {
   if (!options.headers) {
+    // eslint-disable-next-line functional/immutable-data
     options.headers = new Headers({
       Accept: "application/json"
     });
@@ -31,5 +39,5 @@ export const authProvider: AuthProvider = {
   checkError: () => Promise.resolve(),
   checkAuth: () =>
     localStorage.getItem("username") ? Promise.resolve() : Promise.reject(),
-  getPermissions: () => Promise.reject("Unknown method"),
+  getPermissions: () => Promise.reject("Unknown method")
 };

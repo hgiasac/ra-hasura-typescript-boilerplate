@@ -6,14 +6,14 @@ export default {
   layout: {
     theme: {
       light: "sáng",
-      dark: "tối",
+      dark: "tối"
     },
     menu: {
       catalog: "menu catalog"
-    },
+    }
   },
   common: {
-    language: "language",
+    language: "language"
   },
   resources: {
     users: {

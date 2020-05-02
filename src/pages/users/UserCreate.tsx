@@ -1,13 +1,13 @@
-import React from "react";
+import * as React from "react";
 import { Create, SelectInput, SimpleForm, TextInput } from "react-admin";
 import { Roles } from "../../shared/types";
 
 const choices = Roles.map((r) => ({
   id: r,
-  name: r,
+  name: r
 }));
 
-export const UserCreate = (props) => (
+export const UserCreate = (props): JSX.Element => (
   <Create {...props}>
     <SimpleForm>
       <TextInput source="email" />

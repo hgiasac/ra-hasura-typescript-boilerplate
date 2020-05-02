@@ -1,0 +1,9 @@
+{
+  "experimentalComponentTesting": true,
+  "video": false,
+  "componentFolder": "./cypress/components",
+  "testFiles": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}

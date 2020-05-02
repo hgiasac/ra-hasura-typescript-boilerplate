@@ -1,8 +1,8 @@
-import { CHANGE_THEME, IChangeThemeAction, Theme } from "./types";
+import { CHANGE_THEME, ChangeThemeAction, Theme } from "./types";
 
-export function changeTheme(theme: Theme): IChangeThemeAction {
+export function changeTheme(theme: Theme): ChangeThemeAction {
   return {
     type: CHANGE_THEME,
-    payload: theme,
+    payload: theme
   };
 }
