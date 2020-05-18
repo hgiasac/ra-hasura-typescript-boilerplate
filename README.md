@@ -20,4 +20,4 @@ npm run build:prod
 
 **Note**:
 
-Sometimes there will have some error because of Parcel cache. To fix that, just run `npm run clean` or delete `.parcel-cache` folder and rerun
+You should run `npm run clean` or delete `.parcel-cache` folder after changed `.env` or installed new package. New environments aren't been loaded because of Parcel cache
