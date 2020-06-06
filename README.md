@@ -19,13 +19,19 @@ For backend templates, go here: https://github.com/hgiasac/hasura-typescript-boi
 
 ## Development
 
+Copy `dotenv` to `.env` and edit your environemnt variables
+
 ```sh
 npm run dev
 # build source 
 # This is used for test/staging build, so we don't optimize it 
-npm run build
-# build production
-npm run build:prod
+sh ./scripts/build.sh
+# build production locally
+sh ./scripts/build.sh prod
+# build on CI env
+sh ./scripts/build.sh ci
+# build on CI env
+sh ./scripts/build.sh ci-prod
 ```
 
 ## CHANGELOG
