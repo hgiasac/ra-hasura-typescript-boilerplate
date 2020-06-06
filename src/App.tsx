@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import buildHasuraProvider from "ra-data-hasura-graphql";
 import * as React from "react";
 import { Admin } from "react-admin";
@@ -8,12 +11,13 @@ import Login from "./shared/components/Auth/Login";
 import { Layout } from "./shared/components/Layout";
 import i18nProvider from "./shared/i18n";
 import { appReducer } from "./shared/store/reducer";
+import { sidebarRoutes } from "./pages/routes";
 
 const App = (): JSX.Element => {
   const [resolvedDataProvider, setResolvedDataProvider] = React.useState();
 
   React.useEffect(() => {
-    (async () => {
+    void (async () => {
       const dp = await buildHasuraProvider({ client: authGQLClient });
       setResolvedDataProvider(() => dp);
     })();
@@ -30,7 +34,7 @@ const App = (): JSX.Element => {
       i18nProvider={i18nProvider}
       customRoutes={customRoutes}
       customReducers={appReducer}
-      layout={Layout}
+      layout={(props) => <Layout sidebarRoutes={sidebarRoutes} {...props} />}
       login={Login}
       authProvider={authProvider}
     >

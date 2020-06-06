@@ -18,8 +18,8 @@ const authLink = new ApolloLink((operation, forward) => {
 
     return {
       headers: {
-        [AuthorizationHeader]: token ? `${AuthBearer} ${token}` : null,
-        ...headers
+        ...headers,
+        ...(token ? { [AuthorizationHeader]: `${AuthBearer} ${token}` } : {})
       }
     };
   });

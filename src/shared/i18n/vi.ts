@@ -9,7 +9,7 @@ export default {
       dark: "tối"
     },
     menu: {
-      catalog: "menu catalog"
+      users: "Users"
     }
   },
   common: {

@@ -7,7 +7,10 @@ const choices = HASURA_ROLES.map((r) => ({
   name: r
 }));
 
-export const UserCreate = (props): JSX.Element => (
+type Props = {
+
+};
+export default (props: Props): JSX.Element => (
   <Create {...props}>
     <SimpleForm>
       <TextInput source="email" />

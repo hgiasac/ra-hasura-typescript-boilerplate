@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable functional/immutable-data */
 // In production, we register a service worker to serve assets from local cache.
 

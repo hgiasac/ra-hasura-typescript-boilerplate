@@ -35,7 +35,10 @@ const CustomUserMenu = (props: any): JSX.Element => (
   </UserMenu>
 );
 
-const CustomAppBar = (props: any): JSX.Element => {
+type CustomAppBarProps = {
+
+};
+const CustomAppBar = (props: CustomAppBarProps): JSX.Element => {
   const classes = useStyles(props);
 
   return (

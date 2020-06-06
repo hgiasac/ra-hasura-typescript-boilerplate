@@ -89,6 +89,7 @@ export const authProvider: AuthProvider = {
   checkError: ({ graphQLErrors, networkError }) => {
 
     if (networkError) {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       console.log(`[Network error]: ${networkError}`);
     }
 

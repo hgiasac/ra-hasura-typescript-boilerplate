@@ -7,21 +7,36 @@ This admin application is used for integrating [Hasura backend typescript boiler
 
 - [React 16+](https://reactjs.org/)
 - [React Admin](https://redux.js.org/)
-- [Redux]((https://redux.js.org/))
+- [Redux](https://redux.js.org/)
 - [Hasura data provider](https://github.com/Steams/ra-data-hasura-graphql)
-- [Parcel](https://parceljs.org/)
+- [Webpack](https://webpack.js.org/)
+
+## Templates
+
+I define multiple templates into branches. You can checkout template that  fit your use case:
+
+- [auth-jwt](https://github.com/hgiasac/ra-hasura-typescript-boilerplate/tree/auth-jwt)
+- [auth-firebase](https://github.com/hgiasac/ra-hasura-typescript-boilerplate/tree/auth-firebase)
+
+For backend templates, go here: https://github.com/hgiasac/hasura-typescript-boilerplate
 
 ## Development
 
+Copy `dotenv` to `.env` and edit your environemnt variables
 
 ```sh
-npm start
-# build source
-npm run build
-# build production
-npm run build:prod
+npm run dev
+# build source 
+# This is used for test/staging build, so we don't optimize it 
+sh ./scripts/build.sh
+# build production locally
+sh ./scripts/build.sh prod
+# build on CI env
+sh ./scripts/build.sh ci
+# build on CI env
+sh ./scripts/build.sh ci-prod
 ```
 
-**Note**:
+## CHANGELOG
 
-Sometimes there will have some error because of Parcel cache. To fix that, just run `npm run clean` or delete `.parcel-cache` folder and rerun
+[Read here](CHANGELOG.md)

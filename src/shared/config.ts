@@ -14,7 +14,7 @@ const WS_SCHEME = DATA_SCHEME === "https" ? "wss" : "ws";
 export const Config = {
   httpDataHost: `${DATA_SCHEME}://${DATA_DOMAIN}/v1/graphql`,
   wsDataHost: `${WS_SCHEME}://${DATA_DOMAIN}/v1/graphql`,
-  sessionToken: assertEnv(process.env.HASURA_CLIENT_NAME, "HASURA_CLIENT_NAME"),
+  sessionToken: assertEnv(process.env.SESSION_TOKEN, "SESSION_TOKEN"),
   hasuraClientName: assertEnv(process.env.HASURA_CLIENT_NAME, "HASURA_CLIENT_NAME"),
   version: process.env.VERSION || "1.0.0",
   debug: process.env.NODE_ENV !== "production"
