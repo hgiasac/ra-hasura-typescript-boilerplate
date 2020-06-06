@@ -11,6 +11,7 @@ import Login from "./shared/components/Auth/Login";
 import { Layout } from "./shared/components/Layout";
 import i18nProvider from "./shared/i18n";
 import { appReducer } from "./shared/store/reducer";
+import { sidebarRoutes } from "./pages/routes";
 
 const App = (): JSX.Element => {
   const [resolvedDataProvider, setResolvedDataProvider] = React.useState();
@@ -33,7 +34,7 @@ const App = (): JSX.Element => {
       i18nProvider={i18nProvider}
       customRoutes={customRoutes}
       customReducers={appReducer}
-      layout={Layout}
+      layout={(props) => <Layout sidebarRoutes={sidebarRoutes} {...props} />}
       login={Login}
       authProvider={authProvider}
     >

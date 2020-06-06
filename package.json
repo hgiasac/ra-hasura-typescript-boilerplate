@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./config/webpack.config.dev.js",
     "clean": "rm -rf dist",
-    "build:test": "npm run clean && webpack --config ./config/webpack.config.prod.js",
-    "build:prod": "npm run clean && NODE_ENV=production webpack --config ./config/webpack.config.prod.js",
+    "build": "npm run clean && webpack --config ./config/webpack.config.prod.js",
+    "build:prod": "npm run clean && webpack --env.NODE_ENV=production --config ./config/webpack.config.prod.js",
     "test": "cypress run",
     "cy:open": "cypress open",
     "lint": "eslint --ext .js,.ts src"
@@ -71,7 +71,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run build:test"
+      "pre-push": "npm run build"
     }
   }
 }

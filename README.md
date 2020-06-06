@@ -4,20 +4,30 @@
 
 - [React 16+](https://reactjs.org/)
 - [React Admin](https://redux.js.org/)
-- [Redux]((https://redux.js.org/))
+- [Redux](https://redux.js.org/)
 - [Hasura data provider](https://github.com/Steams/ra-data-hasura-graphql)
-- [Parcel](https://parceljs.org/)
+- [Webpack](https://webpack.js.org/)
+
+## Templates
+
+I define multiple templates into branches. You can checkout template that  fit your use case:
+
+- [auth-jwt](https://github.com/hgiasac/ra-hasura-typescript-boilerplate/tree/auth-jwt)
+- [auth-firebase](https://github.com/hgiasac/ra-hasura-typescript-boilerplate/tree/auth-firebase)
+
+For backend templates, go here: https://github.com/hgiasac/hasura-typescript-boilerplate
 
 ## Development
 
 ```sh
-npm start
-# build source
+npm run dev
+# build source 
+# This is used for test/staging build, so we don't optimize it 
 npm run build
 # build production
 npm run build:prod
 ```
 
-**Note**:
+## CHANGELOG
 
-You should run `npm run clean` or delete `.parcel-cache` folder after changed `.env` or installed new package. New environments aren't been loaded because of Parcel cache
+[Read here](CHANGELOG.md)

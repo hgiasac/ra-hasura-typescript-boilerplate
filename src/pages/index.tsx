@@ -1,8 +1,7 @@
 import * as React from "react";
-import { EditGuesser, ListGuesser, Resource } from "react-admin";
 import { Route } from "react-router";
 import Configuration from "./Configuration";
-import { UserCreate } from "./users/UserCreate";
+import { userResources } from "./users";
 
 type Renderer = () => JSX.Element;
 export type CustomRoute = {
@@ -12,13 +11,7 @@ export type CustomRoute = {
 };
 
 export const pageResources = [
-  <Resource
-    key="users"
-    name="users"
-    list={ListGuesser}
-    edit={EditGuesser}
-    create={UserCreate}
-  />
+  ...userResources
 ];
 
 export const customRoutes = [{
