@@ -24,7 +24,6 @@ export const Config = {
     projectId: assertEnv(process.env.FIREBASE_PROJECT_ID, "FIREBASE_PROJECT_ID"),
     storageBucket: assertEnv(process.env.FIREBASE_STORAGE_BUCKET, "FIREBASE_STORAGE_BUCKET"),
     messagingSenderId: assertEnv(process.env.FIREBASE_MESSAGING_SENDER_ID, "FIREBASE_MESSAGING_SENDER_ID"),
-    appId: assertEnv(process.env.FIREBASE_APP_ID, "FIREBASE_APP_ID"),
-    measurementId: assertEnv(process.env.FIREBASE_MEASUREMENT_ID, "FIREBASE_MEASUREMENT_ID")
+    appId: assertEnv(process.env.FIREBASE_APP_ID, "FIREBASE_APP_ID")
   }
 };
