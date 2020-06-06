@@ -3,7 +3,7 @@ const webpackConfig = require('./webpack.config.base');
 const path = require('path');
 
 module.exports = env => {
-  const isProd = env.NODE_ENV === 'production';
+  const isProd = env && env.NODE_ENV === 'production';
   const config = {
     ...webpackConfig,
     mode: isProd ? 'production' : 'development',
@@ -36,7 +36,7 @@ module.exports = env => {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
             chunks: 'all'
-          }
+          },
         }
       }
     };
