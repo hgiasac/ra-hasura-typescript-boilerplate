@@ -7,7 +7,10 @@ const choices = Roles.map((r) => ({
   name: r
 }));
 
-export const UserCreate = (props): JSX.Element => (
+type Props = {
+
+};
+export const UserCreate = (props: Props): JSX.Element => (
   <Create {...props}>
     <SimpleForm>
       <TextInput source="email" />

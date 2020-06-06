@@ -14,7 +14,10 @@ const useStyles = makeStyles({
   button: { margin: "1em" }
 });
 
-const Configuration = (props): JSX.Element => {
+type Props = {
+
+};
+const Configuration = (props: Props): JSX.Element => {
   const translate = useTranslate();
   const locale = useLocale();
   const setLocale = useSetLocale();

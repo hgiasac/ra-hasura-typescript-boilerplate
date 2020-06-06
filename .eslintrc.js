@@ -63,9 +63,11 @@ module.exports = {
         "functional/no-return-void": 0,
         "functional/functional-parameters": 0,
         "functional/no-try-statement": 0,
+        "@typescript-eslint/no-unsafe-return": 0,
         "functional/no-throw-statement": 0,
         "functional/no-expression-statement": 0,
         "functional/no-conditional-statement": 0,
+        "@typescript-eslint/no-unsafe-assignment": 0,
         "@typescript-eslint/adjacent-overload-signatures": "error",
         "@typescript-eslint/array-type": [
             "error",
@@ -98,8 +100,9 @@ module.exports = {
                 }
             }
         ],
+        "@typescript-eslint/no-unsafe-member-access": 0,
+        "@typescript-eslint/no-unsafe-call": 0,
         "@typescript-eslint/camelcase": "off",
-        "@typescript-eslint/class-name-casing": "error",
         "@typescript-eslint/consistent-type-assertions": "off",
         "@typescript-eslint/indent": [
             "error",
@@ -116,7 +119,6 @@ module.exports = {
                 "SwitchCase": 1
             }
         ],
-        "@typescript-eslint/interface-name-prefix": "error",
         "@typescript-eslint/member-delimiter-style": [
             "error",
             {

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import buildHasuraProvider from "ra-data-hasura-graphql";
 import * as React from "react";
 import { Admin } from "react-admin";
@@ -13,7 +16,7 @@ const App = (): JSX.Element => {
   const [resolvedDataProvider, setResolvedDataProvider] = React.useState();
 
   React.useEffect(() => {
-    (async () => {
+    void (async () => {
       const dp = await buildHasuraProvider({ client: authGQLClient });
       setResolvedDataProvider(() => dp);
     })();

@@ -9,7 +9,10 @@ import { darkTheme, lightTheme } from "./themes";
 const CustomSidebar = (props: any): JSX.Element =>
   <Sidebar {...props} size={200} />;
 
-export default (props: any): JSX.Element => {
+type Props = {
+
+};
+export default (props: Props): JSX.Element => {
   const theme = useSelector((state: AppState) =>
     state.config && state.config.theme === Theme.Dark ? darkTheme : lightTheme
   );
