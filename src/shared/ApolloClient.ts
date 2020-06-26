@@ -2,7 +2,6 @@ import { from, ApolloClient, ApolloLink, HttpLink, InMemoryCache, split } from "
 import { getMainDefinition } from "@apollo/client/utilities";
 import { OperationDefinitionNode } from "graphql";
 import { WebSocketLink } from "@apollo/link-ws";
-import { XHasuraAdminSecret } from "./AuthProvder";
 import { Config } from "./config";
 
 export const XHasuraClientName = "hasura-client-name";
@@ -55,7 +54,7 @@ const wsLink = new WebSocketLink({
     reconnect: true,
     connectionParams: () => ({
       headers: {
-        [XHasuraAdminSecret]: getIdToken(),
+        [AuthorizationHeader]: getIdToken(),
         [XHasuraClientName]: Config.hasuraClientName
       }
     }),
