@@ -17,13 +17,14 @@ module.exports = {
   },
 
   module: {
-    rules: [{
+    rules: [
+      {
         enforce: 'pre',
         test: /\.js|(\.tsx?)$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
-          cache: true,
+          // cache: true,
           fix: true,
           emitError: true,
           failOnError: true,
