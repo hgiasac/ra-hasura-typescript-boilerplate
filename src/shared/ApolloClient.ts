@@ -1,7 +1,7 @@
 import { from, ApolloClient, ApolloLink, HttpLink, InMemoryCache, split } from "@apollo/client";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { OperationDefinitionNode } from "graphql";
-import { WebSocketLink } from "@apollo/link-ws";
+import { WebSocketLink } from "@apollo/client/link/ws";
 import { Config } from "./config";
 
 export const XHasuraClientName = "hasura-client-name";

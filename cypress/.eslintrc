@@ -19,6 +19,7 @@
     "rules": {
         "import/no-unresolved": 0,
         "@typescript-eslint/explicit-function-return-type": 0,
-        "functional/immutable-data": 0
+        "functional/immutable-data": 0,
+        "@typescript-eslint/restrict-template-expressions": 0
     }
 }
