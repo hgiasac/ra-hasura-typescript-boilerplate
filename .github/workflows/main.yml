@@ -50,6 +50,6 @@ jobs:
           npx cypress verify
           npx cypress info
       - name: Build
-        run: sh scripts/build.sh
+        run: bash scripts/build.sh
       - name: Cypress tests
         run: npm test
