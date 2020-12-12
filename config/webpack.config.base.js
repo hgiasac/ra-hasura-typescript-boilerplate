@@ -17,13 +17,15 @@ module.exports = {
   },
 
   module: {
-    rules: [{
+    rules: [
+      { test: /\.m?js$/, type: "javascript/auto" },
+      {
         enforce: 'pre',
         test: /\.js|(\.tsx?)$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
-          cache: true,
+          // cache: true,
           fix: true,
           emitError: true,
           failOnError: true,
@@ -48,9 +50,7 @@ module.exports = {
       }
     ]
   },
-  stats: {
-    warningsFilter: [/Failed to parse source map/],
-  },
+  ignoreWarnings: [/Failed to parse source map/],
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Hasura React Admin',

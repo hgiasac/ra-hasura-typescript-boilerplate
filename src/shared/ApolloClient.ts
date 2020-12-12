@@ -1,10 +1,10 @@
 import { from, ApolloClient, ApolloLink, HttpLink, InMemoryCache, split } from "@apollo/client";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { OperationDefinitionNode } from "graphql";
-import { WebSocketLink } from "@apollo/link-ws";
+import { WebSocketLink } from "@apollo/client/link/ws";
 import { XHasuraAdminSecret } from "./AuthProvder";
 import { Config } from "./config";
-import { setContext } from "@apollo/link-context";
+import { setContext } from "@apollo/client/link/context";
 import { FirebaseApp } from "./vendor/firebase";
 export const XHasuraClientName = "hasura-client-name";
 
