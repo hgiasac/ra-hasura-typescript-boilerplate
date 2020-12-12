@@ -72,7 +72,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run build"
+      "pre-push": "sh ./scripts/build.sh"
     }
   }
 }
