@@ -15,7 +15,8 @@ export default (props: Props): JSX.Element => (
     <SimpleForm>
       <TextInput source="email" />
       <TextInput source="password" type="password" />
-      <TextInput source="fullName" />
+      <TextInput source="firstName" />
+      <TextInput source="lastName" />
       <SelectInput source="role" choices={choices} />
     </SimpleForm>
   </Create>

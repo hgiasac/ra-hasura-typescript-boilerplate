@@ -18,6 +18,7 @@ module.exports = {
 
   module: {
     rules: [
+      { test: /\.m?js$/, type: "javascript/auto" },
       {
         enforce: 'pre',
         test: /\.js|(\.tsx?)$/,
@@ -49,9 +50,7 @@ module.exports = {
       }
     ]
   },
-  stats: {
-    warningsFilter: [/Failed to parse source map/],
-  },
+  ignoreWarnings: [/Failed to parse source map/],
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Hasura React Admin',
