@@ -45,10 +45,11 @@ jobs:
           # make sure every Cypress install prints minimal information
           CI: 1
         run: |
+          cp dotenv .env
           npm ci
           npx cypress verify
           npx cypress info
       - name: Build
-        run: npm run build:prod
+        run: sh scripts/build.sh
       - name: Cypress tests
-        run: cp ./dotenv ./.env && npm test
+        run: npm test

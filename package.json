@@ -8,7 +8,7 @@
     "dev": "webpack serve --mode development --env development --config ./config/webpack.config.dev.js",
     "clean": "rm -rf dist",
     "build": "npm run clean && npm run lint && webpack --config ./config/webpack.config.prod.js",
-    "build:prod": "npm run clean && npm run lint && webpack --env.NODE_ENV=production --config ./config/webpack.config.prod.js",
+    "build:prod": "npm run clean && npm run lint && webpack --env NODE_ENV=production --config ./config/webpack.config.prod.js",
     "test": "cypress run",
     "cy:open": "cypress open",
     "lint": "eslint --ext .js,.ts src"
